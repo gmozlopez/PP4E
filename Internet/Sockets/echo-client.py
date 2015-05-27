@@ -6,7 +6,7 @@ reply to each message line;
 import sys
 from socket import *
 serverHost = 'localhost'
-serverPort = 50007
+serverPort = 50010
 
 message = [b'Hello network world']
 
