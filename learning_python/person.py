@@ -10,7 +10,13 @@ class Person:
 	def __repr__(self):
 		return '[Person: %s, %s]' % (self.name, self.pay)
 
-if __name__ == '__main__': 
+class Manager(Person):
+	def __init__(self, name, pay):
+		Person.__init__(self, name, 'mgr', pay)
+	def giveRaise(self, percent, bonus=.10):
+		Person.giveRaise(self, percent + bonus)
+
+if __name__ == '__main__':
 	bob = Person("Bob Smith")
 	sue = Person('Sue Jones', job='dev', pay=100000)
 	print(bob)
@@ -19,3 +25,14 @@ if __name__ == '__main__':
 	sue.giveRaise(.10)
 	print(sue.pay)
 	print(sue)
+	tom = Manager('Tom Jones', 50000)
+	tom.giveRaise(.10)
+	print(tom.lastName())
+	print(tom)
+
+"""
+	print('--All three--')
+	for obj in (bob, sue, tom):
+		obj.giveRaise(.10)
+		print(obj)
+"""
